@@ -50,9 +50,9 @@ const MovieList: React.FC<MovieListProps> = ({ title, movies }) => {
           speed={700}
           freeMode={true}
           slidesPerGroupAuto
-          onSwiper={(swiper) => {
-            swiperRef.current = swiper;
-          }}
+          // onSwiper={(swiper) => {
+          //   swiperRef.current = swiper;
+          // }}
           breakpoints={{
             1024: {
               spaceBetween: 30,
