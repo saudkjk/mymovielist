@@ -59,7 +59,7 @@ const MovieList: React.FC<MovieListProps> = ({ title, movies }) => {
               spaceBetween: 40,
             },
           }}
-          className="swiper-wrapper flex-1"
+          className=""
         >
           {movies.map((movie, index) => (
             <SwiperSlide
