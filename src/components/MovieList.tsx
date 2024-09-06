@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import MovieCard from "./MovieCard";
 import "swiper/css";
@@ -26,6 +26,13 @@ type MovieListProps = {
 
 const MovieList: React.FC<MovieListProps> = ({ title, movies }) => {
   const swiperRef = useRef<SwiperCore | null>(null);
+
+  useEffect(() => {
+    if (swiperRef.current) {
+      swiperRef.current.update();
+    }
+  }, [movies]);
+
   return (
     <section className="mx-[4%] mt-12 md:mx-[8%]">
       <h2 className="mb-[20px] text-3xl font-semibold text-gray-100">
@@ -36,7 +43,7 @@ const MovieList: React.FC<MovieListProps> = ({ title, movies }) => {
         <Swiper
           modules={[Navigation, FreeMode]}
           navigation
-          slidesPerView={3}
+          slidesPerView="auto"
           spaceBetween={20}
           speed={700}
           freeMode={true}
