@@ -33,26 +33,17 @@ const MovieList: React.FC<MovieListProps> = ({ title, movies }) => {
       </h2>
 
       <div className="flex w-full justify-center gap-4">
-        {/* <div className="-ml-10 mt-[125px] hidden md:block">
-          <button
-            className="text-5xl text-white"
-            onClick={() => swiperRef.current?.slidePrev()}
-          >
-            &lt;
-          </button>
-        </div> */}
-
         <Swiper
           modules={[Navigation, FreeMode]}
           navigation
-          slidesPerView="auto"
+          slidesPerView={3}
           spaceBetween={20}
           speed={700}
           freeMode={true}
           slidesPerGroupAuto
-          // onSwiper={(swiper) => {
-          //   swiperRef.current = swiper;
-          // }}
+          onSwiper={(swiper) => {
+            swiperRef.current = swiper;
+          }}
           breakpoints={{
             1024: {
               spaceBetween: 30,
@@ -61,7 +52,7 @@ const MovieList: React.FC<MovieListProps> = ({ title, movies }) => {
               spaceBetween: 40,
             },
           }}
-          // className="flex-1"
+          className="flex-1"
         >
           {movies.map((movie, index) => (
             <SwiperSlide
@@ -72,17 +63,30 @@ const MovieList: React.FC<MovieListProps> = ({ title, movies }) => {
             </SwiperSlide>
           ))}
         </Swiper>
+      </div>
+    </section>
+  );
+};
+export default MovieList;
 
-        {/* <div className="-mr-10 mt-[125px] hidden md:block">
+{
+  /* <div className="-ml-10 mt-[125px] hidden md:block">
+          <button
+            className="text-5xl text-white"
+            onClick={() => swiperRef.current?.slidePrev()}
+          >
+            &lt;
+          </button>
+        </div> */
+}
+
+{
+  /* <div className="-mr-10 mt-[125px] hidden md:block">
           <button
             className="text-5xl text-white"
             onClick={() => swiperRef.current?.slideNext()}
           >
             &gt;
           </button>
-        </div> */}
-      </div>
-    </section>
-  );
-};
-export default MovieList;
+        </div> */
+}
