@@ -25,53 +25,47 @@ type MovieListProps = {
 };
 
 const MovieList: React.FC<MovieListProps> = ({ title, movies }) => {
-  const swiperRef = useRef<SwiperCore | null>(null);
+  // const swiperRef = useRef<SwiperCore | null>(null);
 
-  useEffect(() => {
-    if (swiperRef.current) {
-      swiperRef.current.update();
-    }
-  }, [movies]);
+  // useEffect(() => {
+  //   if (swiperRef.current) {
+  //     swiperRef.current.update();
+  //   }
+  // }, [movies]);
 
   return (
-    <section className="mx-[4%] mt-12 md:mx-[8%]">
-      <h2 className="mb-[20px] text-3xl font-semibold text-gray-100">
-        {title}
-      </h2>
+    // <section className="mx-[4%] mt-12 md:mx-[8%]">
+    // <h2 className="mb-[20px] text-3xl font-semibold text-gray-100">
+    //   {title}
+    // </h2>
 
-      <div className="flex w-full justify-center gap-4">
-        <Swiper
-          modules={[Navigation, FreeMode]}
-          navigation
-          slidesPerView="auto"
-          spaceBetween={20}
-          speed={700}
-          freeMode={true}
-          slidesPerGroupAuto
-          onSwiper={(swiper) => {
-            swiperRef.current = swiper;
-          }}
-          breakpoints={{
-            1024: {
-              spaceBetween: 30,
-            },
-            1600: {
-              spaceBetween: 40,
-            },
-          }}
-          className=""
-        >
-          {movies.map((movie, index) => (
-            <SwiperSlide
-              key={movie.id}
-              className="flex w-[180px] justify-center"
-            >
-              <MovieCard {...movie} />
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </div>
-    </section>
+    <Swiper
+      modules={[Navigation, FreeMode]}
+      navigation
+      slidesPerView="auto"
+      spaceBetween={20}
+      speed={700}
+      freeMode={true}
+      slidesPerGroupAuto
+      // onSwiper={(swiper) => {
+      //   swiperRef.current = swiper;
+      // }}
+      // breakpoints={{
+      //   1024: {
+      //     spaceBetween: 30,
+      //   },
+      //   1600: {
+      //     spaceBetween: 40,
+      //   },
+      // }}
+      // className=""
+    >
+      {movies.map((movie, index) => (
+        <SwiperSlide key={movie.id} className="flex w-[180px] justify-center">
+          <MovieCard {...movie} />
+        </SwiperSlide>
+      ))}
+    </Swiper>
   );
 };
 export default MovieList;
@@ -96,4 +90,15 @@ export default MovieList;
             &gt;
           </button>
         </div> */
+}
+
+{
+  /* <div className="flex w-full justify-center gap-4"> */
+}
+{
+  /* </div> */
+}
+
+{
+  /* </section> */
 }
