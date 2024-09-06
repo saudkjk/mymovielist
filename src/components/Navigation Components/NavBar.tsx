@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import SearchBar from "./SearchBar";
 
 const NavBar: React.FC = () => {
@@ -39,8 +39,9 @@ const NavBar: React.FC = () => {
           MyMovieList
         </span>
       </div>
-
-      <SearchBar />
+      <Suspense>
+        <SearchBar />
+      </Suspense>
 
       {/* Sign in and Menu Icon */}
       <div className="flex items-center gap-6">
