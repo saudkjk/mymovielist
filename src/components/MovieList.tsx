@@ -33,14 +33,14 @@ const MovieList: React.FC<MovieListProps> = ({ title, movies }) => {
       </h2>
 
       <div className="flex w-full justify-center gap-4">
-        <div className="-ml-10 mt-[125px] hidden md:block">
+        {/* <div className="-ml-10 mt-[125px] hidden md:block">
           <button
             className="text-5xl text-white"
             onClick={() => swiperRef.current?.slidePrev()}
           >
             &lt;
           </button>
-        </div>
+        </div> */}
 
         <Swiper
           modules={[Navigation, FreeMode]}
@@ -73,14 +73,14 @@ const MovieList: React.FC<MovieListProps> = ({ title, movies }) => {
           ))}
         </Swiper>
 
-        <div className="-mr-10 mt-[125px] hidden md:block">
+        {/* <div className="-mr-10 mt-[125px] hidden md:block">
           <button
             className="text-5xl text-white"
             onClick={() => swiperRef.current?.slideNext()}
           >
             &gt;
           </button>
-        </div>
+        </div> */}
       </div>
     </section>
   );
