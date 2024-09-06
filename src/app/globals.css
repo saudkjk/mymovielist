@@ -77,6 +77,9 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+.swiper-slide { width: auto; }
+
 /* 
 
 .swiper-button-next::after,
