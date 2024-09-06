@@ -47,6 +47,7 @@ const MovieList: React.FC<MovieListProps> = ({ title, movies }) => {
       speed={700}
       freeMode={true}
       slidesPerGroupAuto
+      className="swiper-wrapper"
       // onSwiper={(swiper) => {
       //   swiperRef.current = swiper;
       // }}
