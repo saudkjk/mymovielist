@@ -32,12 +32,7 @@ const MovieCard: React.FC<MovieCardProps> = ({
       <div className="flex flex-col justify-center gap-0.5 px-1 font-bold">
         <h3 className="text-base">{title}</h3>
         <div className="flex items-center gap-2">
-          <img
-            loading="lazy"
-            src="https://cdn.builder.io/api/v1/image/assets/TEMP/0265755368c2e748754f6842918e8956d8067ee175d384c19f398e257e2cdd5d?placeholderIfAbsent=true&apiKey=1771274d3ec94526b636feb5ba2f5b0e"
-            alt=""
-            className="w-[70px]"
-          />
+          <img loading="lazy" src="/tmdb.svg" alt="" className="w-[70px]" />
           <span className="text-xs font-medium">
             {Math.round((vote_average / 10) * 100)}%
           </span>

@@ -31,7 +31,7 @@ const NavBar: React.FC = () => {
       <div className="flex items-center gap-6">
         <img
           loading="lazy"
-          src="https://cdn.builder.io/api/v1/image/assets/TEMP/b7455439cda4de62a95340ca36c92638191549fc312ca4930a196d319dfe562b?placeholderIfAbsent=true&apiKey=1771274d3ec94526b636feb5ba2f5b0e"
+          src={`https://cdn.builder.io/api/v1/image/assets/TEMP/b7455439cda4de62a95340ca36c92638191549fc312ca4930a196d319dfe562b?placeholderIfAbsent=true&apiKey=${process.env.IMAGE_KEY}`}
           alt="Logo"
           className="h-auto w-8 object-contain"
         />
@@ -50,7 +50,7 @@ const NavBar: React.FC = () => {
         </button>
         <img
           loading="lazy"
-          src="https://cdn.builder.io/api/v1/image/assets/TEMP/c978a17026e05e5d67d00e99efc056308202b42f22b31eea4597114395051c6b?placeholderIfAbsent=true&apiKey=1771274d3ec94526b636feb5ba2f5b0e"
+          src={`https://cdn.builder.io/api/v1/image/assets/TEMP/c978a17026e05e5d67d00e99efc056308202b42f22b31eea4597114395051c6b?placeholderIfAbsent=true&apiKey=${process.env.IMAGE_KEY}`}
           alt="Menu icon"
           className="h-auto w-8 object-contain"
         />

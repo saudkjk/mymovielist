@@ -8,6 +8,9 @@ export default async function Home() {
     <main>
       <Hero movies={movies} />
       <MovieList title="Popular" movies={movies} />
+      <MovieList title="Popular" movies={movies} />
+      <MovieList title="Popular" movies={movies} />
+      <MovieList title="Popular" movies={movies} />
     </main>
   );
 }
