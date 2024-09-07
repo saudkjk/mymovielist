@@ -23,7 +23,7 @@ const MovieCard: React.FC<MovieCardProps> = ({
     <article className="flex w-[180px] flex-col gap-1">
       <div className="flex flex-col">
         <img
-          loading="lazy"
+          // loading="lazy"
           src={getImageUrl(poster_path)}
           alt={title}
           className="rounded-lg object-contain"
@@ -32,7 +32,7 @@ const MovieCard: React.FC<MovieCardProps> = ({
       <div className="flex flex-col justify-center gap-0.5 px-1 font-bold">
         <h3 className="text-base">{title}</h3>
         <div className="flex items-center gap-2">
-          <img loading="lazy" src="/tmdb.svg" alt="" className="w-[70px]" />
+          <img src="/tmdb.svg" alt="" className="w-[70px]" />
           <span className="text-xs font-medium">
             {Math.round((vote_average / 10) * 100)}%
           </span>
