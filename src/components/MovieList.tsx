@@ -63,7 +63,8 @@ const MovieList: React.FC<MovieListProps> = ({ title, movies }) => {
     >
       {movies.map((movie, index) => (
         <SwiperSlide key={movie.id} className="flex w-[180px] justify-center">
-          <MovieCard {...movie} />
+          {/* <MovieCard {...movie} /> */}
+          <h1 className="bg-red-500 w-[180px] h-[270px]">{movie.title}</h1>
         </SwiperSlide>
       ))}
     </Swiper>
