@@ -40,14 +40,14 @@ const MovieList: React.FC<MovieListProps> = ({ title, movies }) => {
     // </h2>
 
     <Swiper
-      modules={[Navigation, FreeMode]}
-      navigation
+      // modules={[Navigation, FreeMode]}
+      // navigation
       slidesPerView="auto"
-      spaceBetween={20}
-      speed={700}
+      // spaceBetween={20}
+      // speed={700}
       // freeMode={true}
-      slidesPerGroupAuto
-      className="swiper-wrapper"
+      // slidesPerGroupAuto
+      // className="swiper-wrapper"
       // onSwiper={(swiper) => {
       //   swiperRef.current = swiper;
       // }}
@@ -62,9 +62,9 @@ const MovieList: React.FC<MovieListProps> = ({ title, movies }) => {
       // className=""
     >
       {movies.map((movie, index) => (
-        <SwiperSlide key={movie.id} className="flex w-[180px] justify-center">
+        <SwiperSlide key={movie.id} className="w-[180px]">
           {/* <MovieCard {...movie} /> */}
-          <h1 className="bg-red-500 w-[180px] h-[270px]">{movie.title}</h1>
+          <h1 className="h-[270px] w-[180px] bg-red-500">{movie.title}</h1>
         </SwiperSlide>
       ))}
     </Swiper>
