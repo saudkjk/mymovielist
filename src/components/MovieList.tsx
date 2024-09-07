@@ -97,7 +97,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "@/app/globals.css";
 
-import { Navigation, FreeMode } from "swiper/modules";
+import { Navigation } from "swiper/modules";
 import SwiperCore from "swiper";
 
 type Movie = {
