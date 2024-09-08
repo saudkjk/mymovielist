@@ -1080,9 +1080,9 @@ const HeroMovieCarousel: React.FC<MovieCardSwiperProps> = ({ movies }) => {
             ))}
           </Swiper>
 
-          <div className="absolute right-[8%] top-[28%] hidden h-[560px] lg:block">
+          <div className="absolute right-[8%] top-[28%] hidden h-[560px] w-[230px] lg:block">
             <Swiper
-              className="mySwiper h-full"
+              className="mySwiper h-full w-full"
               spaceBetween={10}
               slidesPerView={4}
               direction="vertical"
@@ -1094,7 +1094,7 @@ const HeroMovieCarousel: React.FC<MovieCardSwiperProps> = ({ movies }) => {
                   <img
                     src={getImageUrl(movie.backdrop_path)}
                     alt={movie.title}
-                    className={` cursor-pointer brightness-90 transition duration-700`}
+                    className={`cursor-pointer brightness-90 transition duration-700`}
                   />
                 </SwiperSlide>
               ))}
