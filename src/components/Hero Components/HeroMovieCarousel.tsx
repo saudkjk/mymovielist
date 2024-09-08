@@ -477,16 +477,539 @@
 
 // export default HeroMovieCarousel;
 
-"use client";
+// "use client";
 
-import { useRef, useState, useEffect } from "react";
+// import { useRef, useState, useEffect } from "react";
+// import { Swiper, SwiperSlide } from "swiper/react";
+// import "swiper/css";
+// import "swiper/css/scrollbar";
+// import "swiper/css/navigation";
+// import "swiper/css/pagination";
+// import { Navigation } from "swiper/modules";
+// import SwiperCore from "swiper";
+
+// const getImageUrl = (path: string) =>
+//   `https://image.tmdb.org/t/p/original/${path}`;
+
+// type ExtraDetails = {
+//   [key: string]: any;
+// };
+
+// type Movie = {
+//   backdrop_path: string;
+//   title: string;
+//   overview: string;
+//   vote_average: number;
+//   extraDetails: ExtraDetails;
+// };
+
+// type MovieCardSwiperProps = {
+//   movies: Movie[];
+// };
+
+// const HeroMovieCarousel: React.FC<MovieCardSwiperProps> = ({ movies }) => {
+//   const [selectedMovie, setSelectedMovie] = useState<Movie>(movies[0]);
+//   const swiperRef = useRef<SwiperCore | null>(null);
+
+//   const handleSlideChange = (swiper: SwiperCore) => {
+//     const newIndex = swiper.activeIndex % movies.length;
+//     setSelectedMovie(movies[newIndex]);
+//   };
+
+//   useEffect(() => {
+//     if (swiperRef.current) {
+//       setSelectedMovie(movies[swiperRef.current.realIndex]);
+//     }
+//   }, [movies]);
+
+//   return (
+//     <div className="relative flex items-center justify-end">
+//       <div className="relative max-h-[80vh]">
+//         <img
+//           src={getImageUrl(selectedMovie.backdrop_path)}
+//           alt={selectedMovie.title}
+//         />
+//         <div className="absolute inset-0 bg-black bg-opacity-25"></div>
+//       </div>
+//       <button
+//         className="absolute right-[8%] top-[23%] z-10 mr-[90px] hidden bg-black/85 text-4xl text-white lg:block"
+//         onClick={() => swiperRef.current?.slidePrev()}
+//       >
+//         &uarr;
+//       </button>
+//       <button
+//         className="absolute bottom-[0%] right-[8%] z-10 mr-[90px] hidden bg-black/85 text-4xl text-white lg:block"
+//         onClick={() => swiperRef.current?.slideNext()}
+//       >
+//         &darr;
+//       </button>
+//       <div className="absolute right-[8%] top-[30%] hidden h-[600px] lg:block">
+//         <Swiper
+//           modules={[Navigation]}
+//           navigation
+//           direction="vertical"
+//           slidesPerView={4}
+//           className="h-full"
+//           speed={700}
+//           loop
+//           onSwiper={(swiper) => {
+//             swiperRef.current = swiper;
+//             handleSlideChange(swiper);
+//           }}
+//           onSlideChange={handleSlideChange}
+//         >
+//           {movies.map((movie, index) => (
+//             <SwiperSlide key={movie.title}>
+//               <img
+//                 src={getImageUrl(movie.backdrop_path)}
+//                 alt={movie.title}
+//                 className={`h-[125px] w-[230px] cursor-pointer border-[3px] border-white brightness-90 transition duration-700 ${
+//                   selectedMovie.title === movie.title
+//                     ? "border-opacity-100"
+//                     : "border-opacity-10"
+//                 }`}
+//                 onClick={() => swiperRef.current?.slideTo(index)}
+//               />
+//             </SwiperSlide>
+//           ))}
+//         </Swiper>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default HeroMovieCarousel;
+
+// "use client";
+// import { useState, useEffect } from "react";
+// import { Swiper, SwiperSlide } from "swiper/react";
+// import "swiper/css";
+// import "swiper/css/navigation";
+// import { Navigation, Thumbs, EffectFade } from "swiper/modules";
+// import "swiper/css/thumbs";
+// const getImageUrl = (path: string) =>
+//   `https://image.tmdb.org/t/p/original/${path}`;
+
+// type ExtraDetails = {
+//   [key: string]: any;
+// };
+
+// type Movie = {
+//   backdrop_path: string;
+//   title: string;
+//   overview: string;
+//   vote_average: number;
+//   extraDetails: ExtraDetails;
+// };
+
+// type MovieCardSwiperProps = {
+//   movies: Movie[];
+// };
+
+// const HeroMovieCarousel: React.FC<MovieCardSwiperProps> = ({ movies }) => {
+//   const [selectedMovie, setSelectedMovie] = useState<Movie>(movies[0]);
+//   const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
+//   const handleSlideChange = (swiper: any) => {
+//     const newIndex = swiper.activeIndex % movies.length;
+//     setSelectedMovie(movies[newIndex]);
+//     setThumbsSwiper(swiper);
+//   };
+
+//   useEffect(() => {
+//     setSelectedMovie(movies[0]);
+//   }, [movies]);
+
+//   return (
+//     <div className="relative flex items-center justify-end">
+//       <div className="relative h-full max-h-[80vh] w-full">
+//         <Swiper
+//           spaceBetween={0}
+//           speed={700}
+//           thumbs={{ swiper: thumbsSwiper }}
+//           modules={[Thumbs, EffectFade]}
+//           effect="fade"
+//           loop
+//         >
+//           {movies.map((movie, index) => (
+//             <SwiperSlide key={movie.title}>
+//               <img
+//                 src={getImageUrl(movie.backdrop_path)}
+//                 alt={movie.title}
+//                 className={`max-h-[80vh] w-full brightness-90 transition duration-700`}
+//               />
+//             </SwiperSlide>
+//           ))}
+//         </Swiper>
+//       </div>
+//       <div className="absolute right-[8%] top-[23%] z-50 -ml-16 mr-[90px] block bg-black/85">
+//         <button className="hero-swiper-prev text-4xl text-white">&uarr;</button>
+//       </div>
+//       <div className="absolute bottom-[0%] right-[8%] z-50 mr-[90px] block bg-black/85">
+//         <button className="hero-swiper-next text-4xl text-white">&darr;</button>
+//       </div>
+//       <div className="absolute right-[8%] top-[28%] hidden h-[560px] lg:block">
+//         <Swiper
+//           modules={[Navigation, Thumbs]}
+//           navigation={{
+//             nextEl: ".hero-swiper-next",
+//             prevEl: ".hero-swiper-prev",
+//           }}
+//           direction="vertical"
+//           slidesPerView={4}
+//           className="thumb-swiper h-full"
+//           speed={700}
+//           loop
+//           onSlideChange={handleSlideChange}
+//         >
+//           {movies.map((movie, index) => (
+//             <SwiperSlide key={movie.title}>
+//               <img
+//                 src={getImageUrl(movie.backdrop_path)}
+//                 alt={movie.title}
+//                 className={`h-[125px] w-[230px] cursor-pointer border-[3px] border-white brightness-90 transition duration-700 ${
+//                   selectedMovie.title === movie.title
+//                     ? "border-opacity-100"
+//                     : "border-opacity-10"
+//                 }`}
+//                 onClick={() => handleSlideChange({ activeIndex: index })}
+//               />
+//             </SwiperSlide>
+//           ))}
+//         </Swiper>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default HeroMovieCarousel;
+
+// "use client";
+// import { useState, useEffect } from "react";
+// import { Swiper, SwiperSlide } from "swiper/react";
+// import "swiper/css";
+// import "swiper/css/navigation";
+// import { Navigation, Thumbs, EffectFade, FreeMode } from "swiper/modules";
+// import "swiper/css/thumbs";
+// import "@/app/globals.css";
+// const getImageUrl = (path: string) =>
+//   `https://image.tmdb.org/t/p/original/${path}`;
+
+// type ExtraDetails = {
+//   [key: string]: any;
+// };
+
+// type Movie = {
+//   backdrop_path: string;
+//   title: string;
+//   overview: string;
+//   vote_average: number;
+//   extraDetails: ExtraDetails;
+// };
+
+// type MovieCardSwiperProps = {
+//   movies: Movie[];
+// };
+
+// const HeroMovieCarousel: React.FC<MovieCardSwiperProps> = ({ movies }) => {
+//   const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
+
+//   return (
+//     <div className="relative flex items-center justify-end">
+//       <div className="relative h-full max-h-[80vh] w-full">
+//         <>
+//           <Swiper
+//             loop={true}
+//             spaceBetween={10}
+//             navigation={true}
+//             thumbs={{ swiper: thumbsSwiper }}
+//             modules={[FreeMode, Navigation, Thumbs]}
+//             className="mySwiper2"
+//           >
+//             {movies.map((movie, index) => (
+//               <SwiperSlide key={movie.title}>
+//                 <img
+//                   src={getImageUrl(movie.backdrop_path)}
+//                   alt={movie.title}
+//                   className={`max-h-[80vh] w-full brightness-90 transition duration-700`}
+//                 />
+//               </SwiperSlide>
+//             ))}
+//           </Swiper>
+//           <div className="absolute right-[8%] top-[28%] hidden h-[560px] lg:block">
+//             <Swiper
+//               onSwiper={setThumbsSwiper}
+//               loop={true}
+//               spaceBetween={10}
+//               direction="vertical"
+//               slidesPerView={4}
+//               freeMode={true}
+//               watchSlidesProgress={true}
+//               modules={[FreeMode, Navigation, Thumbs]}
+//               navigation
+//               className="mySwiper h-full"
+//             >
+//               {movies.map((movie, index) => (
+//                 <SwiperSlide key={movie.title}>
+//                   <img
+//                     src={getImageUrl(movie.backdrop_path)}
+//                     alt={movie.title}
+//                     className={`h-[125px] w-[230px] cursor-pointer brightness-90 transition duration-700`}
+//                   />
+//                 </SwiperSlide>
+//               ))}
+//             </Swiper>
+//           </div>
+//         </>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default HeroMovieCarousel;
+
+/* <Swiper
+          spaceBetween={0}
+          speed={700}
+          thumbs={{ swiper: thumbsSwiper }}
+          modules={[Thumbs, EffectFade, Navigation]}
+          navigation
+          effect="fade"
+          loop
+          // onSlideChange={handleSlideChange}
+        >
+          {movies.map((movie, index) => (
+            <SwiperSlide key={movie.title}>
+              <img
+                src={getImageUrl(movie.backdrop_path)}
+                alt={movie.title}
+                className={`max-h-[80vh] w-full brightness-90 transition duration-700`}
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
+      <div className="absolute right-[8%] top-[23%] z-50 -ml-16 mr-[90px] block bg-black/85">
+        <button className="hero-swiper-prev text-4xl text-white">&uarr;</button>
+      </div>
+      <div className="absolute bottom-[0%] right-[8%] z-50 mr-[90px] block bg-black/85">
+        <button className="hero-swiper-next text-4xl text-white">&darr;</button>
+      </div>
+      <div className="absolute right-[8%] top-[28%] hidden h-[560px] lg:block">
+        <Swiper
+          modules={[Navigation, Thumbs]}
+          navigation={{
+            nextEl: ".hero-swiper-next",
+            prevEl: ".hero-swiper-prev",
+          }}
+          direction="vertical"
+          slidesPerView={4}
+          className="thumb-swiper h-full"
+          speed={700}
+          loop
+          onSwiper={setThumbsSwiper}
+          // onSlideChange={handleSlideChange}
+        >
+          {movies.map((movie, index) => (
+            <SwiperSlide key={movie.title}>
+              <img
+                src={getImageUrl(movie.backdrop_path)}
+                alt={movie.title}
+                className={`h-[125px] w-[230px] cursor-pointer border-[3px] border-white brightness-90 transition duration-700 ${
+                  selectedMovie.title === movie.title
+                    ? "border-opacity-100"
+                    : "border-opacity-10"
+                }`}
+                onClick={() => thumbsSwiper.slideTo(index)}
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper> */
+
+// "use client";
+// import { useState, useEffect } from "react";
+// import { Swiper, SwiperSlide } from "swiper/react";
+// import "swiper/css";
+// import "swiper/css/navigation";
+// import { Navigation, Thumbs, EffectFade, FreeMode } from "swiper/modules";
+// import "swiper/css/thumbs";
+// import "@/app/globals.css";
+// const getImageUrl = (path: string) =>
+//   `https://image.tmdb.org/t/p/original/${path}`;
+
+// type ExtraDetails = {
+//   [key: string]: any;
+// };
+
+// type Movie = {
+//   backdrop_path: string;
+//   title: string;
+//   overview: string;
+//   vote_average: number;
+//   extraDetails: ExtraDetails;
+// };
+
+// type MovieCardSwiperProps = {
+//   movies: Movie[];
+// };
+
+// const HeroMovieCarousel: React.FC<MovieCardSwiperProps> = ({ movies }) => {
+//   const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
+
+//   return (
+//     <div className="relative flex items-center justify-end">
+//       <div className="relative h-full max-h-[80vh] w-full">
+//         <>
+//           <Swiper
+//             className="mySwiper2"
+//             loop={true}
+//             slidesPerView={1}
+//             onSwiper={setThumbsSwiper}
+//             modules={[Thumbs]}
+//           >
+//             {movies.map((movie, index) => (
+//               <SwiperSlide key={movie.title}>
+//                 <img
+//                   src={getImageUrl(movie.backdrop_path)}
+//                   alt={movie.title}
+//                   className={`max-h-[80vh] w-full brightness-90 transition duration-700`}
+//                 />
+//               </SwiperSlide>
+//             ))}
+//           </Swiper>
+//           <div className="absolute right-[8%] top-[28%] hidden h-[560px] lg:block">
+//             <Swiper
+//               className="mySwiper h-full"
+//               loop={true}
+//               slidesPerView={4}
+//               direction="vertical"
+//               thumbs={{ swiper: thumbsSwiper }}
+//               modules={[FreeMode, Thumbs, Navigation]}
+//               navigation
+//             >
+//               {movies.map((movie, index) => (
+//                 <SwiperSlide key={movie.title}>
+//                   <img
+//                     src={getImageUrl(movie.backdrop_path)}
+//                     alt={movie.title}
+//                     className={`h-[125px] w-[230px] cursor-pointer brightness-90 transition duration-700`}
+//                   />
+//                 </SwiperSlide>
+//               ))}
+//             </Swiper>
+//           </div>
+//         </>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default HeroMovieCarousel;
+
+// "use client";
+// import { useState } from "react";
+// import { Swiper, SwiperSlide } from "swiper/react";
+// import "swiper/css";
+// import "swiper/css/navigation";
+// import { Navigation, Thumbs, FreeMode } from "swiper/modules";
+// import "swiper/css/thumbs";
+// import "@/app/globals.css";
+
+// const getImageUrl = (path: string) =>
+//   `https://image.tmdb.org/t/p/original/${path}`;
+
+// type ExtraDetails = {
+//   [key: string]: any;
+// };
+
+// type Movie = {
+//   backdrop_path: string;
+//   title: string;
+//   overview: string;
+//   vote_average: number;
+//   extraDetails: ExtraDetails;
+// };
+
+// type MovieCardSwiperProps = {
+//   movies: Movie[];
+// };
+
+// const HeroMovieCarousel: React.FC<MovieCardSwiperProps> = ({ movies }) => {
+//   const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
+//   const handleSlideChange = (swiper: any) => {
+//     if (thumbsSwiper) {
+//       thumbsSwiper.slideTo(swiper.activeIndex);
+//     }
+//   };
+
+//   const handleThumbnailClick = (index: number) => {
+//     if (thumbsSwiper) {
+//       thumbsSwiper.slideTo(index);
+//     }
+//   };
+//   return (
+//     <div className="relative flex items-center justify-end">
+//       <div className="relative h-full max-h-[80vh] w-full">
+//         <>
+//           <Swiper
+//             className="mySwiper2"
+//             loop={true}
+//             slidesPerView={1}
+//             modules={[Thumbs, Navigation]}
+//             navigation
+//             thumbs={{ swiper: thumbsSwiper }}
+//             onSlideChange={handleSlideChange}
+//           >
+//             {movies.map((movie) => (
+//               <SwiperSlide key={movie.title}>
+//                 <img
+//                   src={getImageUrl(movie.backdrop_path)}
+//                   alt={movie.title}
+//                   className={`max-h-[80vh] w-full brightness-90 transition duration-700`}
+//                 />
+//               </SwiperSlide>
+//             ))}
+//           </Swiper>
+
+//           <div className="absolute right-[8%] top-[28%] hidden h-[560px] lg:block">
+//             <Swiper
+//               className="mySwiper h-full"
+//               loop={true}
+//               slidesPerView={4}
+//               direction="vertical"
+//               onSwiper={setThumbsSwiper}
+//               modules={[FreeMode, Thumbs]}
+//             >
+//               {movies.map((movie, index) => (
+//                 <SwiperSlide
+//                   key={movie.title}
+//                   onClick={() => handleThumbnailClick(index)}
+//                 >
+//                   <img
+//                     src={getImageUrl(movie.backdrop_path)}
+//                     alt={movie.title}
+//                     className={`h-[125px] w-[230px] cursor-pointer brightness-90 transition duration-700`}
+//                   />
+//                 </SwiperSlide>
+//               ))}
+//             </Swiper>
+//           </div>
+//         </>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default HeroMovieCarousel;
+
+"use client";
+import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import "swiper/css/scrollbar";
 import "swiper/css/navigation";
-import "swiper/css/pagination";
-import { Navigation } from "swiper/modules";
-import SwiperCore from "swiper";
+import "swiper/css/effect-fade";
+import { Navigation, Thumbs, EffectFade } from "swiper/modules";
+import "swiper/css/thumbs";
+import "@/app/globals.css";
 
 const getImageUrl = (path: string) =>
   `https://image.tmdb.org/t/p/original/${path}`;
@@ -508,74 +1031,76 @@ type MovieCardSwiperProps = {
 };
 
 const HeroMovieCarousel: React.FC<MovieCardSwiperProps> = ({ movies }) => {
-  const [selectedMovie, setSelectedMovie] = useState<Movie>(movies[0]);
-  const swiperRef = useRef<SwiperCore | null>(null);
-
-  // Update selected movie when the slide changes
-  const handleSlideChange = (swiper: SwiperCore) => {
-    const newIndex = swiper.activeIndex % movies.length; // To ensure it's within the movies array length
-    setSelectedMovie(movies[newIndex]);
+  const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
+  const handleSlideChange = (swiper: any) => {
+    if (thumbsSwiper) {
+      thumbsSwiper.slideTo(swiper.activeIndex);
+    }
   };
 
-  useEffect(() => {
-    if (swiperRef.current) {
-      // Ensure the first movie is selected initially
-      setSelectedMovie(movies[swiperRef.current.realIndex]);
-    }
-  }, [movies]);
-
+  // const handleThumbnailClick = (index: number) => {
+  //   if (thumbsSwiper) {
+  //     thumbsSwiper.slideTo(index);
+  //   }
+  // };
   return (
     <div className="relative flex items-center justify-end">
-      <div className="relative max-h-[80vh]">
-        <img
-          src={getImageUrl(selectedMovie.backdrop_path)}
-          alt={selectedMovie.title}
-        />
-        <div className="absolute inset-0 bg-black bg-opacity-25"></div>
-      </div>
-      <button
-        className="absolute right-[8%] top-[23%] z-10 mr-[90px] hidden bg-black/85 text-4xl text-white lg:block"
-        onClick={() => swiperRef.current?.slidePrev()}
-      >
-        &uarr;
-      </button>
-      <button
-        className="absolute bottom-[0%] right-[8%] z-10 mr-[90px] hidden bg-black/85 text-4xl text-white lg:block"
-        onClick={() => swiperRef.current?.slideNext()}
-      >
-        &darr;
-      </button>
-      <div className="absolute right-[8%] top-[30%] hidden h-[600px] lg:block">
-        <Swiper
-          modules={[Navigation]}
-          navigation
-          direction="vertical"
-          slidesPerView={4}
-          // slidesPerGroup={1}
-          className="h-full"
-          speed={700}
-          loop
-          onSwiper={(swiper) => {
-            swiperRef.current = swiper;
-            handleSlideChange(swiper);
-          }}
-          onSlideChange={handleSlideChange}
-        >
-          {movies.map((movie, index) => (
-            <SwiperSlide key={movie.title}>
-              <img
-                src={getImageUrl(movie.backdrop_path)}
-                alt={movie.title}
-                className={`h-[125px] w-[230px] cursor-pointer border-[3px] border-white brightness-90 transition duration-700 ${
-                  selectedMovie.title === movie.title
-                    ? "border-opacity-100"
-                    : "border-opacity-10"
-                }`}
-                onClick={() => swiperRef.current?.slideTo(index)}
-              />
-            </SwiperSlide>
-          ))}
-        </Swiper>
+      <div className="relative h-full max-h-[80vh] w-full">
+        <>
+          <div className="absolute right-[8%] top-[23%] z-50 -ml-16 mr-[90px] hidden bg-black/85 lg:block">
+            <button className="hero-swiper-prev text-4xl text-white">
+              &uarr;
+            </button>
+          </div>
+          <div className="absolute bottom-[0%] right-[8%] z-50 mr-[90px] hidden bg-black/85 lg:block">
+            <button className="hero-swiper-next text-4xl text-white">
+              &darr;
+            </button>
+          </div>
+          <Swiper
+            className="mySwiper2"
+            slidesPerView={1}
+            modules={[Thumbs, Navigation, EffectFade]}
+            navigation={{
+              nextEl: ".hero-swiper-next",
+              prevEl: ".hero-swiper-prev",
+            }}
+            effect="fade"
+            thumbs={{ swiper: thumbsSwiper }}
+            onSlideChange={handleSlideChange}
+          >
+            {movies.map((movie) => (
+              <SwiperSlide key={movie.title}>
+                <img
+                  src={getImageUrl(movie.backdrop_path)}
+                  alt={movie.title}
+                  className={`max-h-[80vh] w-full brightness-90 transition duration-700`}
+                />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+
+          <div className="absolute right-[8%] top-[28%] hidden h-[560px] lg:block">
+            <Swiper
+              className="mySwiper h-full"
+              spaceBetween={10}
+              slidesPerView={4}
+              direction="vertical"
+              onSwiper={setThumbsSwiper}
+              modules={[Thumbs]}
+            >
+              {movies.map((movie, index) => (
+                <SwiperSlide key={movie.title} className="h-[125px] w-[230px]">
+                  <img
+                    src={getImageUrl(movie.backdrop_path)}
+                    alt={movie.title}
+                    className={` cursor-pointer brightness-90 transition duration-700`}
+                  />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
+        </>
       </div>
     </div>
   );

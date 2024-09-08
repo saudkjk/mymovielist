@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 type MovieCardProps = {
   title: string;
@@ -20,13 +21,26 @@ const MovieCard: React.FC<MovieCardProps> = ({
   poster_path,
 }) => {
   return (
-    <article className="flex w-[180px] flex-col gap-1">
-      <div className="flex flex-col">
-        <img
-          // loading="lazy"
-          src={getImageUrl(poster_path)}
+    <article className="flex flex-col gap-1">
+      <div className="flex h-[270px] w-[180px] flex-col">
+        {/* <img
+          loading="lazy"
+          // src={getImageUrl(poster_path)}
+
+          src="dune2.jpg"
           alt={title}
           className="rounded-lg object-contain"
+        /> */}
+        <Image
+          // loading="lazy"
+          src={getImageUrl(poster_path)}
+          fill
+          style={{
+            objectFit: "cover",
+          }}
+          alt={title}
+          className="rounded-lg object-contain"
+          sizes="(min-width: 1540px) 248px, (min-width: 1280px) calc(10vw + 96px), (min-width: 1040px) calc(25vw - 36px), (min-width: 780px) calc(33.33vw - 43px), calc(49.13vw - 53px)"
         />
       </div>
       <div className="flex flex-col justify-center gap-0.5 px-1 font-bold">
