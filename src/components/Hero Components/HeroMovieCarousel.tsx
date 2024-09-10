@@ -1361,10 +1361,10 @@ type MovieCardSwiperProps = {
 
 const HeroMovieCarousel: React.FC<MovieCardSwiperProps> = ({ movies }) => {
   const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
-  const [activeIndex, setActiveIndex] = useState<number>(0); // Track active slide index
+  const [activeIndex, setActiveIndex] = useState<number>(0);
 
   const handleSlideChange = (swiper: any) => {
-    setActiveIndex(swiper.activeIndex); // Update active slide index
+    setActiveIndex(swiper.activeIndex);
     if (thumbsSwiper) {
       thumbsSwiper.slideTo(swiper.activeIndex);
     }
@@ -1374,16 +1374,16 @@ const HeroMovieCarousel: React.FC<MovieCardSwiperProps> = ({ movies }) => {
     <div className="relative flex items-center justify-end">
       <div className="relative h-full max-h-[80vh] w-full">
         <>
-          <div className="absolute right-[8%] top-[23%] z-50 -ml-16 mr-[90px] hidden bg-black/85 lg:block">
-            <button className="hero-swiper-prev text-4xl text-white">
-              &uarr;
+          {/* <div className="hero-swiper-prev absolute right-[8%] top-[30%] z-50 hidden w-[230px] bg-black/40 transition-all duration-300 ease-in-out hover:bg-black/60 lg:block">
+            <button className="px-[102px] text-white transition-transform duration-300 ease-in-out hover:scale-110">
+              <div className="w-[30px] rotate-90 text-4xl">&lt;</div>
             </button>
           </div>
-          <div className="absolute bottom-[0%] right-[8%] z-50 mr-[90px] hidden bg-black/85 lg:block">
-            <button className="hero-swiper-next text-4xl text-white">
-              &darr;
+          <div className="hero-swiper-next absolute bottom-[0%] right-[8%] z-50 hidden justify-center bg-black/40 transition-all duration-300 ease-in-out hover:bg-black/60 lg:block">
+            <button className="px-[100px] text-white transition-transform duration-300 ease-in-out hover:scale-110">
+              <div className="w-[30px] rotate-90 text-4xl">&gt;</div>
             </button>
-          </div>
+          </div> */}
           <Swiper
             className="mySwiper2"
             slidesPerView={1}
@@ -1411,10 +1411,9 @@ const HeroMovieCarousel: React.FC<MovieCardSwiperProps> = ({ movies }) => {
               </SwiperSlide>
             ))}
           </Swiper>
-
           <div className="absolute right-[8%] top-[30%] hidden h-[70%] w-[230px] lg:block">
             <Swiper
-              className="mySwiper h-full w-full"
+              className="mySwiper group h-full w-full"
               spaceBetween={0}
               slidesPerView={3}
               direction="vertical"
@@ -1426,6 +1425,16 @@ const HeroMovieCarousel: React.FC<MovieCardSwiperProps> = ({ movies }) => {
                 },
               }}
             >
+              <div className="hero-swiper-prev absolute right-[8%] top-[0%] z-50 -mr-5 hidden w-[235px] bg-black/40 opacity-0 transition-all duration-300 ease-in-out hover:bg-black/60 group-hover:opacity-100 lg:block">
+                <button className="px-[110px] text-white transition-transform duration-300 ease-in-out hover:scale-110">
+                  <div className="rotate-90 text-4xl">&lt;</div>
+                </button>
+              </div>
+              <div className="hero-swiper-next absolute bottom-[0%] right-[8%] z-50 -mr-5 hidden w-[235px] bg-black/40 opacity-0 transition-all duration-300 ease-in-out hover:bg-black/60 group-hover:opacity-100 lg:block">
+                <button className="px-[110px] text-white transition-transform duration-300 ease-in-out hover:scale-110">
+                  <div className="rotate-90 text-4xl">&gt;</div>
+                </button>
+              </div>
               {movies.map((movie, index) => (
                 <SwiperSlide key={movie.title} className="h-[125px] w-[230px]">
                   <img
@@ -1434,7 +1443,7 @@ const HeroMovieCarousel: React.FC<MovieCardSwiperProps> = ({ movies }) => {
                     className={`cursor-pointer border-[3px] border-white brightness-90 transition duration-700 ${
                       index === activeIndex
                         ? "border-opacity-100"
-                        : "border-opacity-10"
+                        : "border-0 border-opacity-0"
                     }`}
                   />
                 </SwiperSlide>

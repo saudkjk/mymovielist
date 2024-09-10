@@ -229,12 +229,12 @@ const MovieList: React.FC<MovieListProps> = ({ title, movies }) => {
       </h2>
       <div className="relative flex w-full gap-4">
         <div className="absolute top-1/2 z-50 -ml-12 hidden -translate-y-1/2 transform pb-[60px] md:block lg:-ml-16">
-          <button className="movie-swiper-prev text-5xl text-white">
+          <button className="movie-swiper-prev text-5xl text-white transition-transform duration-300 ease-in-out hover:scale-110">
             &lt;
           </button>
         </div>
         <div className="absolute right-0 top-1/2 z-50 -mr-12 hidden -translate-y-1/2 transform pb-[60px] md:block lg:-mr-16">
-          <button className="movie-swiper-next text-5xl text-white">
+          <button className="movie-swiper-next text-5xl text-white transition-transform duration-300 ease-in-out hover:scale-110">
             &gt;
           </button>
         </div>
