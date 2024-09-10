@@ -113,24 +113,28 @@ type HeroProps = {
 };
 
 const Hero: React.FC<HeroProps> = ({ movies }) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   return (
     <>
       <div className="flex items-end overflow-hidden md:items-center">
         <div className="relative w-full">
-          <HeroMovieCarousel movies={movies} />
+          <HeroMovieCarousel
+            movies={movies}
+            activeIndex={activeIndex}
+            setActiveIndex={setActiveIndex}
+          />
         </div>
 
         <div className="absolute z-50 m-2 mx-[4%] flex flex-col items-start justify-center md:mx-[8%] md:w-[50%] md:gap-[0px] lg:w-[440px]">
-          <HeroMovieInfo movie={movies[currentIndex]} />
+          <HeroMovieInfo movie={movies[activeIndex]} />
           <div className="hidden md:block">
-            <HeroDesktopActions movie={movies[currentIndex]} />
+            <HeroDesktopActions movie={movies[activeIndex]} />
           </div>
         </div>
       </div>
       <div className="flex flex-col md:hidden">
-        <HeroMobileActions movie={movies[currentIndex]} />
+        <HeroMobileActions movie={movies[activeIndex]} />
       </div>
     </>
   );

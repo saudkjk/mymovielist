@@ -1357,11 +1357,17 @@ type Movie = {
 
 type MovieCardSwiperProps = {
   movies: Movie[];
+  activeIndex: number;
+  setActiveIndex: (index: number) => void;
 };
 
-const HeroMovieCarousel: React.FC<MovieCardSwiperProps> = ({ movies }) => {
+const HeroMovieCarousel: React.FC<MovieCardSwiperProps> = ({
+  movies,
+  activeIndex,
+  setActiveIndex,
+}) => {
   const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
-  const [activeIndex, setActiveIndex] = useState<number>(0);
+  // const [activeIndex, setActiveIndex] = useState<number>(0);
 
   const handleSlideChange = (swiper: any) => {
     setActiveIndex(swiper.activeIndex);
@@ -1374,16 +1380,6 @@ const HeroMovieCarousel: React.FC<MovieCardSwiperProps> = ({ movies }) => {
     <div className="relative flex items-center justify-end">
       <div className="relative h-full max-h-[80vh] w-full">
         <>
-          {/* <div className="hero-swiper-prev absolute right-[8%] top-[30%] z-50 hidden w-[230px] bg-black/40 transition-all duration-300 ease-in-out hover:bg-black/60 lg:block">
-            <button className="px-[102px] text-white transition-transform duration-300 ease-in-out hover:scale-110">
-              <div className="w-[30px] rotate-90 text-4xl">&lt;</div>
-            </button>
-          </div>
-          <div className="hero-swiper-next absolute bottom-[0%] right-[8%] z-50 hidden justify-center bg-black/40 transition-all duration-300 ease-in-out hover:bg-black/60 lg:block">
-            <button className="px-[100px] text-white transition-transform duration-300 ease-in-out hover:scale-110">
-              <div className="w-[30px] rotate-90 text-4xl">&gt;</div>
-            </button>
-          </div> */}
           <Swiper
             className="mySwiper2"
             slidesPerView={1}
