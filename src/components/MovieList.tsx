@@ -198,12 +198,12 @@
 // export default MovieList;
 
 "use client";
-import React from "react";
+import React, { Suspense } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import MovieCard from "./MovieCard";
-import "swiper/css";
-import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
+// import "swiper/css";
+// import "swiper/css/navigation";
 
 type Movie = {
   id: number;
@@ -227,14 +227,17 @@ const MovieList: React.FC<MovieListProps> = ({ title, movies }) => {
       <h2 className="mb-[20px] text-3xl font-semibold text-gray-100">
         {title}
       </h2>
-
-      <div className="absolute z-50 -ml-16 mt-[145px] block">
-        <button className="movie-swiper-prev text-5xl text-white">&lt;</button>
-      </div>
-      <div className="absolute right-[8%] z-50 -mr-16 mt-[145px] block">
-        <button className="movie-swiper-next text-5xl text-white">&gt;</button>
-      </div>
-      <div className="flex w-full gap-4">
+      <div className="relative flex w-full gap-4">
+        <div className="absolute top-1/2 z-50 -ml-12 hidden -translate-y-1/2 transform pb-[60px] md:block lg:-ml-16">
+          <button className="movie-swiper-prev text-5xl text-white">
+            &lt;
+          </button>
+        </div>
+        <div className="absolute right-0 top-1/2 z-50 -mr-12 hidden -translate-y-1/2 transform pb-[60px] md:block lg:-mr-16">
+          <button className="movie-swiper-next text-5xl text-white">
+            &gt;
+          </button>
+        </div>
         <Swiper
           modules={[Navigation]}
           navigation={{
@@ -282,16 +285,7 @@ const MovieList: React.FC<MovieListProps> = ({ title, movies }) => {
             </SwiperSlide>
           ))}
         </Swiper>
-
-        {/* <div className="-mr-10 mt-[125px] hidden md:block">
-          <button className="swiper-button-next text-5xl text-white">
-            &gt;
-          </button>
-        </div> */}
       </div>
-      {/* <div className="absolute z-30 -mr-10 mt-[125px] hidden md:block">
-        <button className="swiper-button-next text-5xl text-white"></button>
-      </div> */}
     </section>
   );
 };

@@ -128,13 +128,15 @@ body {
   padding: 10px 0;
 } */
 
-.mySwiper .swiper-slide {
-  border: 2px solid rgba(255, 255, 255, 0.1);
-}
+/* .mySwiper .swiper-slide { */
+  /* height: 125px;
+  width: 230px; */
+  /* border: 2px solid rgba(255, 255, 255, 0.1); */
+/* } */
 
-.mySwiper .swiper-slide-thumb-active {
-  border: 2px solid rgba(255, 255, 255, 0.9);
-}
+/* .mySwiper .swiper-slide-thumb-active { */
+  /* border: 2px solid rgba(255, 255, 255, 0.9); */
+/* } */
 
 /* .swiper-slide img {
   display: block;

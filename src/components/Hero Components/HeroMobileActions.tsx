@@ -15,13 +15,13 @@ export default function HeroMobileActions({ movie }: { movie: Movie }) {
         <HeroButton
           icon={HiPlayCircle}
           text="watch trailer"
-          className="flex-1 bg-main-color hover:bg-main-color-dark active:bg-main-color-darkest"
+          className="flex-1 whitespace-nowrap bg-main-color hover:bg-main-color-dark active:bg-main-color-darkest"
           onClick={undefined}
         />
         <HeroButton
           icon={FaCirclePlus}
           text="add to list"
-          className="flex-1 bg-secondary-color hover:bg-secondary-color-dark active:bg-secondary-color-darkest"
+          className="flex-1 whitespace-nowrap bg-secondary-color hover:bg-secondary-color-dark active:bg-secondary-color-darkest"
           onClick={undefined}
         />
       </div>

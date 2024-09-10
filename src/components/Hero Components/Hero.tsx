@@ -88,9 +88,9 @@
 // };
 
 // export default Hero;
+
 "use client";
 import React, { useState } from "react";
-// import HeroBackgroundImage from "@/components/Hero Components/HeroBackgroundImage";
 import HeroMovieCarousel from "@/components/Hero Components/HeroMovieCarousel";
 import HeroMovieInfo from "@/components/Hero Components/HeroMovieInfo";
 import HeroDesktopActions from "@/components/Hero Components/HeroDesktopActions";
